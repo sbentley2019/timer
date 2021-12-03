@@ -1,12 +1,9 @@
-const timerFun = function(num) {
-  setTimeout(() => {
-    process.stdout.write('\x07');
-  }, num * 1000);
+const timer = function(arr) {
+  arr.forEach((i) => {
+    if(i >= 0 && !isNaN(i)) setTimeout(()=> process.stdout.write('\x07'), Number(i) * 1000)
+  })
+  return;
 }
 
-const args = process.argv.slice(2);
-for (let i of args) {
-  if (Number(i) && i >= 0) {
-    timerFun(Number(i));
-  } 
-}
+const timerArr = process.argv.slice(2);
+timer(timerArr);
